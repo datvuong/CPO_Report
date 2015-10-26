@@ -1,7 +1,7 @@
 # ---- 10_MappingComplaintsData ----
 load("../4_RData/AllVentureTicketsShort.RData")
 
-wb <- loadWorkbook("../../1_Input/August/Manual CS Data/Consilidate_compalins.xlsx")
+wb <- loadWorkbook(file.path(runningFolder,"Manual CS Data/Consilidate_compalins.xlsx"))
 ID <- readWorksheet(wb, 1, colTypes = c("integer","character","character","character",
                                         "character","character","character","character"))
 MY <- readWorksheet(wb, 2, colTypes = c("integer","character","character","character",
@@ -55,6 +55,6 @@ AllVentureTicketsShortFinal <- select(AllVentureTicketsShortFinal, -(Week.y))
 
 save(AllVentureTicketsShortFinal, file = "../4_RData/FinalCSData.RData")
 
-write.csv(AllVentureTicketsShortFinal, file = "../../2_Output/August/data.csv",
+write.csv(AllVentureTicketsShortFinal, file = file.path("../../2_Output",runningFolderName,"data.csv"),
           row.names = FALSE)
 

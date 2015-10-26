@@ -32,7 +32,10 @@ AllVentureTicketsShort <- AllVentureTicketsCalculated %>%
          metro,
          ContactPerOrder,
          NumberofContacts,
-         UniqueOrder)
+         UniqueOrder,
+         Reopen,
+         SKU,
+         Merchant)
 
 save(AllVentureTicketsShort,
      file = "../4_RData/AllVentureTicketsShort.RData")
