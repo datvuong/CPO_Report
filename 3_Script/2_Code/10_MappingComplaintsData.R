@@ -57,4 +57,3 @@ save(AllVentureTicketsShortFinal, file = "../4_RData/FinalCSData.RData")
 
 write.csv(AllVentureTicketsShortFinal, file = file.path("../../2_Output",runningFolderName,"data.csv"),
           row.names = FALSE)
-

@@ -9,7 +9,7 @@ for (iventure in c("Indonesia", "Singapore")) {
   
   # Load Zendesk Ticket Data, as noted, for Singapore and Indonesa, the only one CSV files downloaded from GoodData already
   # contain full information needed for tickets
-  Tickets <- read.csv(file.path(runningFolder,"Manual CS Data",paste0(iventureShort,"_CPO_Monthly_Report_Data.csv",sep = "")),
+  Tickets <- read.csv(file.path(runningFolder,"Manual CS Data",paste0(iventureShort,"_CPO_Monthly_Report_Data.csv")),
                       col.names = c("Ticket.Id","Channel.List","Outbound",
                                     "Hour.Ticket.Created","Order_Nr",
                                     "Date.Ticket.Created","Ticket.Tag"),
@@ -34,7 +34,7 @@ for (iventure in c("Indonesia", "Singapore")) {
   
   # Mapping OMS order Data with Ticket Data - Note that the due to the form of Order_Nr of data extract from GoodData,
   # some transformation was applied.
-  OMS <- read.csv(file.path("../../1_Input/OMS Data",
+  OMS <- read.csv(file.path(runningFolder,"OMS Data",
                             paste0("CPO - Correlation - Leadtime_",iventure,".csv")),
                   colClasses = c("integer","character","factor","character","myDateTime",
                                  "myDateTime","myDateTime","myDateTime","myDateTime","myDateTime",

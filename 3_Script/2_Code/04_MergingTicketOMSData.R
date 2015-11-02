@@ -19,14 +19,14 @@ for (iventure in c("Malaysia", "Philippines", "Thailand", "Vietnam")) {
     Tickets <- read.csv(file.path(runningFolder,"Manual CS Data",paste0(iventureShort,"_CPO_Monthly_Report_Part1.csv")),
                         col.names = c("Ticket.Id","Channel.List","Outbound",
                                       "Hour.Ticket.Created","Date.Ticket.Created",
-                                      "Ticket.Tag","Customer.Email"),
+                                      "Ticket.Tag"),
                         colClasses = c("character","character","character",
-                                       "character","myDate","character","character"))
+                                       "character","myDate","character"))
     # Load Zendesk Ticket with Order Number Data
     TicketsOrder <- read.csv(file.path(runningFolder,"Manual CS Data",paste0(iventureShort,"_CPO_Monthly_Report_Part2.csv")),
                              colClasses = c("character","character"),
                              col.names = c("Ticket.Id","Order_Nr"))
-    TicketsOrder <- mutate(TicketsOrder, Order_Nr=as.integer(substr(Order_Nr,1,9)))
+    TicketsOrder <- mutate(TicketsOrder, Order_Nr=as.integer(substr(gsub(',','',Order_Nr),1,9)))
     
     TicketsReopen <- read.csv(file.path(runningFolder,"Manual CS Data",paste0(iventureShort,"_Tickets_reopens.csv")),
                               colClasses = c("character","character",
